@@ -1,4 +1,4 @@
-package queue;
+package circularQueue;
 
 public class QueueX {
 
@@ -14,9 +14,12 @@ public class QueueX {
 	}
 
 	public void insert(int j) {
-		if (rear == maxSize - 1) {
+		if (rear == maxSize) {
 			System.out.println("Queue is Full!");
 		} else {
+			if (rear == maxSize - 1) {
+				rear = -1;
+			}
 			queueArray[++rear] = j;
 			nItems++;
 			System.out.println("Data Added! input number : " + j);
@@ -28,11 +31,35 @@ public class QueueX {
 			System.out.println("Queue is Empty!");
 			return -99;
 		} else {
+			int temp = queueArray[front++];
+			if (front == maxSize) {
+				front = 0;
+			}
 			nItems--;
-			return queueArray[front++];
+			return temp;
 		}
 	}
-	
+
+//	public boolean isEmpty() {
+//
+//		if (nItems == 0) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
+
+	public boolean isEmpty() {
+
+		return (nItems == 0);
+	}
+
+	public boolean isFull() {
+
+		return (nItems == maxSize);
+
+	}
+
 	public int peekFront() {
 		if (nItems == 0) {
 			System.out.println("Queue is Empty!");
@@ -40,26 +67,6 @@ public class QueueX {
 		} else {
 			return queueArray[front];
 		}
-		
-	}
-
-	public boolean isEmpty() {
-
-		if (nItems == 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-//	public boolean isEmpty() {
-//
-//		return (nItems == 0);
-//	}
-
-	public boolean isFull() {
-		
-		return (nItems == maxSize);
 
 	}
 }
