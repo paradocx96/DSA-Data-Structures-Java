@@ -130,4 +130,22 @@ public class Tree {
 	public void deleteAll() {
 		root = null;
 	}
+	
+	public int minimum() { 
+        Node current = root; 
+  
+        while (current.leftChild != null) { 
+            current = current.leftChild; 
+        } 
+        return (current.EmpNo);
+    }
+	
+	public int maximum() { 
+		Node current = root; 
+		
+		while (current.rightChild != null) { 
+			current = current.rightChild; 
+		} 
+		return (current.EmpNo);
+	}
 }

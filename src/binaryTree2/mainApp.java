@@ -26,6 +26,9 @@ public class mainApp {
 		
 		T1.find(160);
 		
+		System.out.println("Minimum : " + T1.minimum());
+		System.out.println("Maximum : " + T1.maximum());
+		
 		T1.deleteAll();
 	}
 }
