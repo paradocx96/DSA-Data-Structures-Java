@@ -38,5 +38,11 @@ public class stackApp {
 				System.out.println("Number is odd : " + value);
 			}
 		}
+		
+		while (!evenStack.isEmpty()) {
+			s1.push(evenStack.pop());
+		}
+		
+		evenStack.displayArray();
 	}
 }

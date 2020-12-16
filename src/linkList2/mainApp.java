@@ -29,7 +29,10 @@ public class mainApp {
 //		linkList.deleteFirst();		
 //		linkList.displayList();
 		
-		linkList.deleteLink("Aravinda");
+		//linkList.deleteLink("Aravinda");
+		
+		System.out.println("Avarage : " + linkList.findLink("Aravinda"));
+		
 		linkList.displayList();
 		
 	}

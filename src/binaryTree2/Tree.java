@@ -148,4 +148,18 @@ public class Tree {
 		} 
 		return (current.EmpNo);
 	}
+	
+	private void desendingOrder(Node localRoot) {
+		if(localRoot != null) {
+			desendingOrder(localRoot.rightChild);
+			localRoot.displayNode();
+			desendingOrder(localRoot.leftChild);
+		}
+	}
+	
+	public void TraverseDesendingOrder() {
+		desendingOrder(root);
+	}
+	
+	
 }

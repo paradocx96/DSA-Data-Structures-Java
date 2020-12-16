@@ -44,34 +44,53 @@ public class LinkList {
 
 		while (current != null) {
 			current.displayDetalis();
-			
-			//move the current to the next link
+
+			// move the current to the next link
 			current = current.next;
 		}
 	}
-	
+
 	public Link deleteLink(String name) {
-		
+
 		Link current = first;
 		Link previous = first;
-		
-		//checking the name until we find it by going through all links one by one
-		while(current.Name != name) {
-			
+
+		// checking the name until we find it by going through all links one by one
+		while (current.Name != name) {
+
 			if (current.next == null) {
-				//name is not in the name
+				// name is not in the name
 				return null;
 			} else {
 				previous = current;
 				current = current.next;
-			}// go out of this while loop when the name is found
-			
-			if(current == first) {
+			} // go out of this while loop when the name is found
+
+			if (current == first) {
 				first = first.next;
 			} else {
 				previous.next = current.next;
 			}
 		}
 		return current;
+	}
+
+	public Double findLink(String name) {
+
+		Link current = first;
+		Link previous = first;
+
+		// checking the name until we find it by going through all links one by one
+		while (current.Name != name) {
+
+			if (current.next == null) {
+				// name is not in the name
+				return null;
+			} else {
+				previous = current;
+				current = current.next;
+			} // go out of this while loop when the name is found
+		}
+		return current.average;
 	}
 }
